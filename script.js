@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let notes = JSON.parse(localStorage.getItem("notes")) || [];
   let editIndex = null;
+  <p>${linkify(note.content)}</p>
+
 
   // Create a DocumentFragment that contains text nodes and <a> nodes for URLs
   function createContentNode(text) {
@@ -117,4 +119,5 @@ document.addEventListener('DOMContentLoaded', () => {
       
    
  
+
 
