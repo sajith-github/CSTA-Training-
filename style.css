@@ -78,4 +78,11 @@ button {
     color: white;
 }
 
+.note-card p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #555;
+    white-space: pre-wrap; /* <-- preserves your typing format */
+}
+
 
