@@ -4,7 +4,19 @@ const addNoteBtn = document.getElementById("addNote");
 const notesContainer = document.getElementById("notesContainer");
 
 let notes = JSON.parse(localStorage.getItem("notes")) || [];
-let editIndex = null; // track which note is being edited
+let editIndex = null;
+
+// Function to detect URLs and make them clickable
+function linkify(text) {
+    const urlPattern = /(\b(https?:\/\/|www\.)\S+\b)/gi;
+    return text.replace(urlPattern, function (url) {
+        let hyperlink = url;
+        if (!hyperlink.match('^https?://')) {
+            hyperlink = 'http://' + hyperlink;
+        }
+        return `<a href="${hyperlink}" target="_blank">${url}</a>`;
+    });
+}
 
 function displayNotes() {
     notesContainer.innerHTML = "";
@@ -13,7 +25,7 @@ function displayNotes() {
         noteEl.className = "note-card";
         noteEl.innerHTML = `
             <h3>${note.title}</h3>
-            <p>${note.content}</p>
+            <p>${linkify(note.content)}</p>
             <div class="note-buttons">
                 <button class="edit-btn" onclick="editNote(${index})">Edit</button>
                 <button class="delete-btn" onclick="deleteNote(${index})">Delete</button>
@@ -57,3 +69,5 @@ addNoteBtn.addEventListener("click", () => {
 
 displayNotes();
 
+
+  
