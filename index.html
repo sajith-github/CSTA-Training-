@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Notes App</title>
 <link rel="stylesheet" href="style.css">
+<style>
+    /* Bold while typing in textarea */
+    textarea {
+        font-weight: bold;
+    }
+
+    /* Bold all saved notes */
+    #notesContainer {
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
 
@@ -17,16 +28,7 @@
 <div id="notesContainer" class="notes-grid"></div>
 
 <script src="script.js"></script>
-    <style>
-    textarea {
-        font-weight: bold;
-    }
-</style>
-
-<textarea placeholder="Take a note..."></textarea>
 
 </body>
 </html>
-
-
 
