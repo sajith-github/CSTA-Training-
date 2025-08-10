@@ -14,8 +14,10 @@ function displayNotes() {
         noteEl.innerHTML = `
             <h3>${note.title}</h3>
             <p>${note.content}</p>
-            <button onclick="editNote(${index})">Edit</button>
-            <button onclick="deleteNote(${index})">Delete</button>
+            <div class="note-buttons">
+                <button class="edit-btn" onclick="editNote(${index})">Edit</button>
+                <button class="delete-btn" onclick="deleteNote(${index})">Delete</button>
+            </div>
         `;
         notesContainer.appendChild(noteEl);
     });
@@ -24,8 +26,8 @@ function displayNotes() {
 function editNote(index) {
     titleInput.value = notes[index].title;
     contentInput.value = notes[index].content;
-    editIndex = index; // store the index being edited
-    addNoteBtn.textContent = "UPDATE NOTE"; // change button text
+    editIndex = index;
+    addNoteBtn.textContent = "UPDATE NOTE";
 }
 
 function deleteNote(index) {
@@ -40,12 +42,10 @@ addNoteBtn.addEventListener("click", () => {
     if (!title || !content) return;
 
     if (editIndex !== null) {
-        // update existing note
         notes[editIndex] = { title, content };
         editIndex = null;
-        addNoteBtn.textContent = "ADD NOTE"; // reset button text
+        addNoteBtn.textContent = "ADD NOTE";
     } else {
-        // add new note
         notes.push({ title, content });
     }
 
@@ -56,3 +56,4 @@ addNoteBtn.addEventListener("click", () => {
 });
 
 displayNotes();
+
