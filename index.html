@@ -28,8 +28,19 @@
 <div id="notesContainer" class="notes-grid"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.2/tabletop.min.js"></script>
 <script src="script.js"></script>
+    const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRgu7lOuEQOk7mjUmOIaxrdw4OsqezRpHlLrg0egT9z5NaPgpGZd7hC1za-_hNEo5Cro9eo6nrSCSWI/pubhtml';
+
+Tabletop.init({
+  key: spreadsheetUrl,
+  callback: function(data, tabletop) {
+    // Process the data here
+    console.log(data);
+  },
+  simpleSheet: true
+});
 
 </body>
 </html>
+
 
 
