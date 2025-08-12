@@ -28,30 +28,12 @@
 <div id="notesContainer" class="notes-grid"></div>
 <div id="data"></div>
 
-<script>
-const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRgu7lOuEQOk7mjUmOIaxrdw4OsqezRpHlLrg0egT9z5NaPgpGZd7hC1za-_hNEo5Cro9eo6nrSCSWI/pub?output=csv";
 
-fetch(sheetUrl)
-  .then(res => res.text())
-  .then(csv => {
-    // Split CSV into rows
-    const rows = csv.split("\n").map(r => r.split(","));
-    
-    // Display in HTML
-    let html = "<table border='1'>";
-    rows.forEach(row => {
-      html += "<tr>" + row.map(cell => `<td>${cell}</td>`).join("") + "</tr>";
-    });
-    html += "</table>";
-    
-    document.getElementById("data").innerHTML = html;
-  })
-  .catch(err => console.error("Error loading sheet:", err));
-</script>
 
 
 </body>
 </html>
+
 
 
 
